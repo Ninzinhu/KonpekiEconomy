@@ -12,7 +12,7 @@ import org.konpekiestudios.konpekistudios.hytale.plugins.config.ConfigManager;
 import org.konpekiestudios.konpekistudios.hytale.plugins.json.PlayerManager;
 import org.konpekiestudios.konpekistudios.hytale.plugins.json.UserProfile;
 
-public class Economy implements IEcoAPI {
+public class Economy implements KonpekiEcoAPI {
     private final PlayerManager playerManager;
     private final ConfigManager configManager;
 
