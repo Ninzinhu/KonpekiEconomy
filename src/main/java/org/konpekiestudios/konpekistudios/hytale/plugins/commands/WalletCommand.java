@@ -30,7 +30,7 @@ public class WalletCommand extends CommandBase {
             Player player = (Player) commandContext.sender();
             try {
                 // Open wallet GUI
-                openWalletGUI(player);
+                openWalletGUI(player, commandContext);
             } catch (Exception e) {
                 commandContext.sender().sendMessage(Message.raw(this.configManager.getData().messages.error_occurred));
                 throw new RuntimeException(e);
@@ -40,10 +40,10 @@ public class WalletCommand extends CommandBase {
         }
     }
 
-    private void openWalletGUI(Player player) {
+    private void openWalletGUI(Player player, CommandContext commandContext) {
         // TODO: Implement GUI - Hytale API may not have inventory GUIs like Minecraft
         // For now, send balance message
-        double balance = KonpekiEconomy.getInstance().getEconomy().getBalance(player.getPlayerRef().getUuid());
+        double balance = KonpekiEconomy.getInstance().getEconomy().getBalance(commandContext.sender().getUuid());
         player.sendMessage(Message.raw("Carteira: Saldo " + balance + " " + this.configManager.getData().chat.currency));
     }
 }
