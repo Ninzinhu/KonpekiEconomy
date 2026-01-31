@@ -27,7 +27,7 @@ public class ReloadCommand extends AbstractAsyncCommand {
         try {
             this.configManager.load();
             commandContext.sender().sendMessage(Message.raw("Configuration reloaded successfully."));
-            return CompletableFuture.completedFuture((Object)null);
+            return CompletableFuture.completedFuture(null);
         } catch (Exception e) {
             commandContext.sender().sendMessage(Message.raw(this.configManager.getData().messages.error_occurred));
             throw new RuntimeException(e);

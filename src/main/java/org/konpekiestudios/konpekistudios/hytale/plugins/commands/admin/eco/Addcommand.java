@@ -43,14 +43,14 @@ public class AddCommand extends AbstractAsyncCommand {
             float currentPlayerBalance = KonpekiEconomy.getInstance().getEconomy().getBalance(targetPlayer.getUuid());
             if (currentPlayerBalance + amountToAdd < this.configManager.getData().balance.minimum) {
                 commandContext.sender().sendMessage(Message.raw(this.configManager.getData().messages.min_balance_reached.replace("{player}", targetPlayer.getUsername()).replace("{balance}", String.valueOf(amountToAdd)).replace("{currency}", this.configManager.getData().chat.currency).replace("{min_balance}", String.valueOf(this.configManager.getData().balance.minimum))));
-                return CompletableFuture.completedFuture((Object)null);
+                return CompletableFuture.completedFuture(null);
             } else if (currentPlayerBalance + amountToAdd > this.configManager.getData().balance.maximum) {
                 commandContext.sender().sendMessage(Message.raw(this.configManager.getData().messages.max_balance_reached.replace("{player}", targetPlayer.getUsername()).replace("{balance}", String.valueOf(amountToAdd)).replace("{currency}", this.configManager.getData().chat.currency).replace("{max_balance}", String.valueOf(this.configManager.getData().balance.maximum))));
-                return CompletableFuture.completedFuture((Object)null);
+                return CompletableFuture.completedFuture(null);
             } else {
                 KonpekiEconomy.getInstance().getEconomy().addBalance(targetPlayer.getUuid(), amountToAdd);
                 commandContext.sender().sendMessage(Message.raw(this.configManager.getData().messages.admin_add_success.replace("{player}", targetPlayer.getUsername()).replace("{balance}", String.valueOf(amountToAdd)).replace("{currency}", this.configManager.getData().chat.currency)));
-                return CompletableFuture.completedFuture((Object)null);
+                return CompletableFuture.completedFuture(null);
             }
         } catch (Exception e) {
             commandContext.sender().sendMessage(Message.raw(this.configManager.getData().messages.error_occurred));
