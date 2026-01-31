@@ -1,61 +1,49 @@
- # KonpekiEconomy
+# KonpekiEconomy
 
 [![Build Status](https://github.com/Ninzinhu/KonpekiEconomy/actions/workflows/build.yml/badge.svg)](https://github.com/Ninzinhu/KonpekiEconomy/actions)
 
-A powerful economy plugin for Hytale servers, providing comprehensive player balance management, transactions, and administrative tools.
+Um plugin de economia poderoso para servidores Hytale, fornecendo gerenciamento abrangente de saldo de jogadores, transações e ferramentas administrativas.
 
-## Features
+## Funcionalidades
 
-- **Player Balance Management**: Check, add, remove, and set player balances.
-- **Transaction System**: Secure player-to-player payments.
-- **Top Balances**: View the richest players on the server.
-- **Admin Commands**: Powerful tools for server administrators to manage economies.
-- **Database Support**: Choose between SQLite (default) or MySQL for data storage.
-- **Configuration**: Highly customizable settings via YAML configuration.
-- **Multi-threaded**: Asynchronous command execution for better performance.
+- **Gerenciamento de Saldo de Jogadores**: Verificar, adicionar, remover e definir saldos de jogadores.
+- **Sistema de Transações**: Pagamentos seguros entre jogadores.
+- **Saldos Top**: Ver os jogadores mais ricos no servidor.
+- **Comandos Admin**: Ferramentas poderosas para administradores gerenciarem economias.
+- **Suporte a Banco de Dados**: Escolher entre SQLite (padrão) ou MySQL para armazenamento de dados.
+- **Configuração**: Configurações altamente personalizáveis via YAML.
+- **Multi-threaded**: Execução assíncrona de comandos para melhor performance.
 
-## Installation
+## Instalação
 
-### Prerequisites
+### Pré-requisitos
 
-- Java 17 or higher
-- Maven 3.6+
-- Hytale server
+- Servidor Hytale
 
-### Building the Plugin
+### Baixando o Plugin
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Ninzinhu/KonpekiEconomy.git
-   cd KonpekiEconomy
-   ```
+1. Vá para a página de [Releases](https://github.com/Ninzinhu/KonpekiEconomy/releases) deste repositório.
+2. Baixe a versão mais recente do arquivo JAR (ex: `konpeki-economy-1.0.jar`).
 
-2. Build with Maven:
-   ```bash
-   mvn clean package
-   ```
+### Instalando no Servidor Hytale
 
-3. The plugin JAR will be created in `target/konpeki-economy-1.0-SNAPSHOT.jar`.
+1. Pare seu servidor Hytale.
+2. Copie o arquivo JAR baixado para a pasta `plugins` do seu servidor Hytale.
+3. Inicie o servidor. O plugin será carregado automaticamente e gerará arquivos de configuração.
 
-### Installing on Hytale Server
+## Configuração
 
-1. Stop your Hytale server.
-2. Copy the built JAR file to the `plugins` folder of your Hytale server.
-3. Start the server. The plugin will generate configuration files automatically.
+Após a primeira execução, um arquivo `config.yml` será criado na pasta de dados do plugin. Edite-o para personalizar:
 
-## Configuration
+- Configurações de banco de dados (SQLite ou MySQL)
+- Símbolo da moeda e formatação
+- Permissões de comandos
+- Limites de saldo
 
-After first run, a `config.yml` file will be created in the plugin's data folder. Edit it to customize:
-
-- Database settings (SQLite or MySQL)
-- Currency symbol and formatting
-- Command permissions
-- Balance limits
-
-Example configuration:
+Exemplo de configuração:
 ```yaml
 database:
-  type: sqlite  # or mysql
+  type: sqlite  # ou mysql
   host: localhost
   port: 3306
   database: economy
@@ -73,56 +61,59 @@ commands:
   eco: true
 ```
 
-## Usage
+## Uso
 
-### Player Commands
+### Comandos de Jogador
 
-- `/balance` - Check your current balance
-- `/pay <player> <amount>` - Send money to another player
-- `/baltop` - View top player balances
+- `/balance` - Verificar seu saldo atual
+- `/pay <jogador> <quantia>` - Enviar dinheiro para outro jogador
+- `/baltop` - Ver saldos dos jogadores top
 
-### Admin Commands
+### Comandos Admin
 
-- `/eco add <player> <amount>` - Add money to a player's balance
-- `/eco remove <player> <amount>` - Remove money from a player's balance
-- `/eco set <player> <amount>` - Set a player's balance
-- `/eco reload` - Reload the configuration
+- `/eco add <jogador> <quantia>` - Adicionar dinheiro ao saldo de um jogador
+- `/eco remove <jogador> <quantia>` - Remover dinheiro do saldo de um jogador
+- `/eco set <jogador> <quantia>` - Definir o saldo de um jogador
+- `/eco reload` - Recarregar a configuração
 
 ## API
 
-KonpekiEconomy provides a simple API for other plugins:
+KonpekiEconomy fornece uma API simples para outros plugins:
 
 ```java
 import org.konpekiestudios.konpekistudios.hytale.plugins.KonpekiEcoAPI.Service;
 
 KonpekiEcoAPI api = Service.getInstance();
-float balance = api.getBalance(playerId);
+float saldo = api.getBalance(playerId);
 api.addBalance(playerId, 100.0f);
 ```
 
-## Contributing
+## Contribuição
 
-Contributions are welcome! Please:
+Contribuições são bem-vindas! Por favor:
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+1. Fork o repositório
+2. Crie uma branch de feature
+3. Commit suas mudanças
+4. Push para a branch
+5. Crie um Pull Request
 
-## License
+## Licença
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## Support
+## Suporte
 
-If you encounter issues or have questions:
+Se você encontrar problemas ou tiver perguntas:
 
-- Open an issue on GitHub
-- Check the Hytale community forums
-- Join our Discord server (link TBD)
+- Abra uma issue no GitHub
+- Verifique os fóruns da comunidade Hytale
+- Junte-se ao nosso servidor Discord (link TBD)
+
+## Tradução para Inglês
+
+Para traduzir este README para o inglês, você pode usar ferramentas online como o Google Translate ou copiar o conteúdo e traduzir manualmente. Uma versão em inglês pode ser encontrada [aqui](https://translate.google.com/?sl=pt&tl=en&text=...&op=translate) (substitua o texto).
 
 ---
 
-Made with ❤️ for the Hytale community</content>
-<parameter name="filePath">D:\Programação\konpeki-economy\README.md
+Feito com ❤️ para a comunidade Hytale
