@@ -16,9 +16,11 @@ import java.util.UUID;
 
 public class PlayerManager {
     private final StorageProvider storageProvider;
+    private final String storageType;
 
     public PlayerManager(ConfigData configData) {
-        switch (configData.storage.type.toLowerCase()) {
+        this.storageType = configData.storage.type.toLowerCase();
+        switch (this.storageType) {
             case "json":
                 this.storageProvider = new JSONStorageProvider();
                 break;
