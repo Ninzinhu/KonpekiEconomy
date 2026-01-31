@@ -74,12 +74,13 @@
             <version>3.0.2</version>
         </dependency>
 
-        <!-- Hytale API -->
+        <!-- Hytale API (local JAR) -->
         <dependency>
             <groupId>com.hypixel.hytale</groupId>
             <artifactId>HytaleServer</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>provided</scope>
+            <version>local</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/HytaleServer.jar</systemPath>
         </dependency>
     </dependencies>
 
