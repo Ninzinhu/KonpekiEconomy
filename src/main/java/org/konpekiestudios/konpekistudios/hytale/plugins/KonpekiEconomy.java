@@ -9,7 +9,6 @@ import org.konpekiestudios.konpekistudios.hytale.plugins.KonpekiEcoAPI.Service;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.BalanceCommand;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.BaltopCommand;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.PayCommand;
-import org.konpekiestudios.konpekistudios.hytale.plugins.commands.WalletCommand;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.admin.EcoCommand;
 import org.konpekiestudios.konpekistudios.hytale.plugins.config.ConfigManager;
 import org.konpekiestudios.konpekistudios.hytale.plugins.events.PlayerJoin;
@@ -42,7 +41,6 @@ public class KonpekiEconomy extends JavaPlugin {
         this.getCommandRegistry().registerCommand(new BalanceCommand("balance", "Check your balance"));
         this.getCommandRegistry().registerCommand(new PayCommand("pay", "Pay another player"));
         this.getCommandRegistry().registerCommand(new BaltopCommand("baltop", "View top player balances"));
-        this.getCommandRegistry().registerCommand(new WalletCommand("wallet", "Open wallet GUI"));
         this.getCommandRegistry().registerCommand(new EcoCommand("eco", "Admin economy commands"));
         ((HytaleLogger.Api)this.getLogger().atInfo()).log("KonpekiEconomy plugin has been initialized.");
     }
