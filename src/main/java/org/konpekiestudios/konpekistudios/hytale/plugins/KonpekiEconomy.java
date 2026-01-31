@@ -5,7 +5,7 @@
 
 package org.konpekiestudios.konpekistudios.hytale.plugins;
 
-import org.konpekiestudios.konpekistudios.hytale.plugins.KonpekiEconomyAPI.Service;
+import org.konpekiestudios.konpekistudios.hytale.plugins.KonpekiEcoAPI.Service;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.BalanceCommand;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.BaltopCommand;
 import org.konpekiestudios.konpekistudios.hytale.plugins.commands.PayCommand;
