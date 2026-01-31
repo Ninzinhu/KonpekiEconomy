@@ -98,9 +98,9 @@ jobs:
         echo "" >> release_notes.md
         echo "## Other Changes" >> release_notes.md
         if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
-          git log --oneline --grep-v="^feat:\|^fix:\|^refactor:\|workflow\|release\|build\|tag\|action" --pretty=format="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+          git log --oneline --pretty=format="%s" $(git describe --tags --abbrev=0 HEAD^)..HEAD | grep -E -v "^feat:|^fix:|^refactor:|workflow|release|build|tag|action" | sed 's/^/- /' >> release_notes.md
         else
-          git log --oneline --grep-v="^feat:\|^fix:\|^refactor:\|workflow\|release\|build\|tag\|action" --pretty=format="- %s" >> release_notes.md
+          git log --oneline --pretty=format="%s" | grep -E -v "^feat:|^fix:|^refactor:|workflow|release|build|tag|action" | sed 's/^/- /' >> release_notes.md
         fi
         echo "" >> release_notes.md
         echo "## Contributors" >> release_notes.md
