@@ -72,7 +72,7 @@ jobs:
         if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
           git log --oneline --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
         else
-          echo "- Initial release with all features" >> release_notes.md
+          git log --oneline --pretty=format:"- %s" >> release_notes.md
         fi
         echo "" >> release_notes.md
         echo "## Contributors" >> release_notes.md
