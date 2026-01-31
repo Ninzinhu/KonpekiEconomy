@@ -33,3 +33,10 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: Upload JAR to release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: target/konpeki-economy-${{ github.ref_name }}.jar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
