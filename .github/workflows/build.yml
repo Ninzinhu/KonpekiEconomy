@@ -38,7 +38,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: target/konpeki-economy-${{ github.ref_name }}.jar
-        generate_release_notes: true
         draft: false
         prerelease: true
       env:
