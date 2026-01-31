@@ -39,5 +39,7 @@ jobs:
       with:
         files: target/konpeki-economy-${{ github.ref_name }}.jar
         generate_release_notes: true
+        draft: false
+        prerelease: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
