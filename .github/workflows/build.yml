@@ -65,6 +65,15 @@ jobs:
     - name: List target directory
       run: ls -la target/
 
+    - name: Generate release notes
+      if: startsWith(github.ref, 'refs/tags/')
+      run: |
+        echo "## Changes" >> release_notes.md
+        git log --oneline --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+        echo "" >> release_notes.md
+        echo "## Contributors" >> release_notes.md
+        git log --format='%aN' $(git describe --tags --abbrev=0 HEAD^)..HEAD | sort -u | sed 's/^/- /' >> release_notes.md
+
     - name: Create release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v2
@@ -72,6 +81,6 @@ jobs:
         files: target/konpeki-economy-${{ github.ref_name }}.jar
         draft: false
         prerelease: ${{ contains(github.ref_name, 'Pre-Release') }}
-        generate_release_notes: true
+        body_path: release_notes.md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
