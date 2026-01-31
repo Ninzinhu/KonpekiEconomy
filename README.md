@@ -1,6 +1,11 @@
 # KonpekiEconomy
 
-[![Build Status](https://github.com/Ninzinhu/KonpekiEconomy/actions/workflows/build.yml/badge.svg)](https://github.com/Ninzinhu/KonpekiEconomy/actions)
+[![Build Status](https://github.com/Ninzinhu/KonpekiEconomy/actions/workflows/build.yml/badge.svg)](https://github.com/Ninzinhu/KonpekiEconomy/actions/workflows/build.yml)
+
+## Doações
+
+Se você gostou do plugin e quer apoiar o desenvolvimento, considere fazer uma doação!  
+[![Doar via Email](https://img.shields.io/badge/Doar%20via%20Email-joaovevasconcelos%40gmail.com-blue?style=for-the-badge&logo=gmail)](mailto:joaovevasconcelos@gmail.com)
 
 Um plugin de economia poderoso para servidores Hytale, fornecendo gerenciamento abrangente de saldo de jogadores, transações e ferramentas administrativas.
 

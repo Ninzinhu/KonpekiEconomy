@@ -68,11 +68,39 @@ jobs:
     - name: Generate release notes
       if: startsWith(github.ref, 'refs/tags/')
       run: |
-        echo "## Changes" > release_notes.md
+        echo "## Features" > release_notes.md
         if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
-          git log --oneline --pretty=format:"- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+          git log --oneline --grep="^feat:" --pretty=format="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
         else
-          git log --oneline --pretty=format:"- %s" >> release_notes.md
+          git log --oneline --grep="^feat:" --pretty=format="- %s" >> release_notes.md
+        fi
+        echo "" >> release_notes.md
+        echo "## Fixes" >> release_notes.md
+        if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
+          git log --oneline --grep="^fix:" --pretty=format="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+        else
+          git log --oneline --grep="^fix:" --pretty=format="- %s" >> release_notes.md
+        fi
+        echo "" >> release_notes.md
+        echo "## Refactors" >> release_notes.md
+        if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
+          git log --oneline --grep="^refactor:" --pretty=format="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+        else
+          git log --oneline --grep="^refactor:" --pretty=format="- %s" >> release_notes.md
+        fi
+        echo "" >> release_notes.md
+        echo "## CI/CD Improvements" >> release_notes.md
+        if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
+          git log --oneline --grep="workflow\|release\|build\|tag\|action" --pretty=format="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+        else
+          git log --oneline --grep="workflow\|release\|build\|tag\|action" --pretty=format="- %s" >> release_notes.md
+        fi
+        echo "" >> release_notes.md
+        echo "## Other Changes" >> release_notes.md
+        if git describe --tags --abbrev=0 HEAD^ > /dev/null 2>&1; then
+          git log --oneline --grep-v="^feat:\|^fix:\|^refactor:\|workflow\|release\|build\|tag\|action" --pretty=format="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD >> release_notes.md
+        else
+          git log --oneline --grep-v="^feat:\|^fix:\|^refactor:\|workflow\|release\|build\|tag\|action" --pretty=format="- %s" >> release_notes.md
         fi
         echo "" >> release_notes.md
         echo "## Contributors" >> release_notes.md
