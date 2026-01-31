@@ -2,7 +2,7 @@ package org.konpekiestudios.konpekistudios.hytale.plugins;
 
 import java.util.UUID;
 
-public interface KonpekiEconomyAPI {
+public interface KonpekiEcoAPI {
     float getBalance(UUID playerId);
     void addBalance(UUID playerId, float amount);
     void removeBalance(UUID playerId, float amount);
