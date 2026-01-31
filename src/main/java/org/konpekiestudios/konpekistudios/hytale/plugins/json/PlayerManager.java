@@ -30,7 +30,7 @@ public class PlayerManager {
                 this.storageProvider = new SQLStorageProvider("mysql", mysql.host, mysql.port, mysql.database, mysql.username, mysql.password);
                 break;
             default:
-                ((HytaleLogger.Api)KonpekiEconomy.getInstance().getLogger().atWarning()).log("Unknown storage type: " + storageType + ", defaulting to JSON");
+                ((HytaleLogger.Api)KonpekiEconomy.getInstance().getLogger().atWarning()).log("Unknown storage type: " + configData.storage.type + ", defaulting to JSON");
                 this.storageProvider = new JSONStorageProvider();
         }
 
