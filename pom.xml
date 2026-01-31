@@ -76,10 +76,9 @@
 
         <!-- Hytale API -->
         <dependency>
-            <groupId>com.hypixel.hytale</groupId>
-            <artifactId>Server</artifactId>
-            <!-- Replace with latest version, Hytale provides jars for the last five releases -->
-            <version>2026.01.22-6f8bdbdc4</version>
+            <groupId>net.hypixel</groupId>
+            <artifactId>hytale-api</artifactId>
+            <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
