@@ -19,6 +19,16 @@
             <id>hytale-repo</id>
             <url>https://repo.hypixel.net/repository/Hytale/</url>
         </repository>
+        <!-- Hytale release repository -->
+        <repository>
+            <id>hytale-release</id>
+            <url>https://maven.hytale.com/release</url>
+        </repository>
+        <!-- Hytale pre-release repository -->
+        <repository>
+            <id>hytale-pre-release</id>
+            <url>https://maven.hytale.com/pre-release</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -66,9 +76,10 @@
 
         <!-- Hytale API -->
         <dependency>
-            <groupId>net.hypixel</groupId>
-            <artifactId>hytale-api</artifactId>
-            <version>1.0.0</version>
+            <groupId>com.hypixel.hytale</groupId>
+            <artifactId>Server</artifactId>
+            <!-- Replace with latest version, Hytale provides jars for the last five releases -->
+            <version>2026.01.22-6f8bdbdc4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
